@@ -1,11 +1,14 @@
 <script setup>
+import BigTitle from './components/BigTitle.vue';
 </script>
 
 <template>
   <header>
+    <BigTitle />
   </header>
 
   <main>
+    <h1>Wait a minute, where's the queen?</h1>
   </main>
 </template>
 
