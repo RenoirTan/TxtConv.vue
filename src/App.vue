@@ -1,5 +1,6 @@
 <script setup>
 import BigTitle from './components/BigTitle.vue';
+import Converter from './components/Converter.vue';
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import BigTitle from './components/BigTitle.vue';
   </header>
 
   <main>
-    <h1>Wait a minute, where's the queen?</h1>
+    <Converter />
   </main>
 </template>
 
