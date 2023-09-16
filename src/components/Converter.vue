@@ -1,17 +1,24 @@
 <script setup>
 import { ref } from 'vue';
 import TextBox from './TextBox.vue';
+import CodecSelector from './CodecSelector.vue';
 
 const leftSide = ref("");
 const rightSide = ref("");
+const codec = ref("");
 </script>
 
 <template>
   <form id="cnv-form">
     <TextBox v-model="leftSide" />
-    <p>hahah</p>
+    <CodecSelector v-model="codec"/>
     <TextBox v-model="rightSide" />
   </form>
+  <div>
+    <p>Left Side: {{ leftSide }}</p>
+    <p>Right Side: {{ rightSide }}</p>
+    <p>Codec: {{ codec }}</p>
+  </div>
 </template>
 
 <style scoped>
