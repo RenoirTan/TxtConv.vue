@@ -3,12 +3,15 @@ import { computed, ref } from 'vue';
 import TextBox from './TextBox.vue';
 import CodecSelector from './CodecSelector.vue';
 import { rot13Decode, rot13Encode } from '../converters/rot13';
+import { oppositeCaseDecode, oppositeCaseEncode } from '../converters/oppositeCase';
 
 const leftSide = ref("");
 const rightSide = computed({
   get() {
     if (codec.value === "rot13") {
       return rot13Encode(leftSide.value);
+    } else if (codec.value === "oppositeCase") {
+      return oppositeCaseEncode(leftSide.value);
     } else {
       return leftSide.value;
     }
@@ -16,6 +19,8 @@ const rightSide = computed({
   set(newValue) {
     if (codec.value === "rot13") {
       leftSide.value = rot13Decode(newValue);
+    } else if (codec.value === "oppositeCase") {
+      return oppositeCaseDecode(newValue);
     } else {
       leftSide.value = newValue;
     }
