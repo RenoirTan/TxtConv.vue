@@ -1,10 +1,14 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import TextBox from './TextBox.vue';
 import CodecSelector from './CodecSelector.vue';
+import { rot13Encode } from '../converters/rot13';
 
 const leftSide = ref("");
 const rightSide = ref("");
+const result = computed(() => {
+  return rot13Encode(leftSide.value);
+})
 const codec = ref("");
 </script>
 
@@ -18,6 +22,7 @@ const codec = ref("");
     <p>Left Side: {{ leftSide }}</p>
     <p>Right Side: {{ rightSide }}</p>
     <p>Codec: {{ codec }}</p>
+    <p>Result: {{ result }}</p>
   </div>
 </template>
 
