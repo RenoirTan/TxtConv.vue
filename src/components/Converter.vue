@@ -26,7 +26,7 @@ const rightSide = computed({
     }
   }
 });
-const codec = ref("");
+const codec = ref("rot13");
 </script>
 
 <template>
