@@ -35,11 +35,6 @@ const codec = ref("rot13");
     <CodecSelector v-model="codec"/>
     <TextBox v-model="rightSide" />
   </form>
-  <div>
-    <p>Left Side: {{ leftSide }}</p>
-    <p>Right Side: {{ rightSide }}</p>
-    <p>Codec: {{ codec }}</p>
-  </div>
 </template>
 
 <style scoped>
