@@ -22,11 +22,12 @@ defineEmits(["update:modelValue"]);
   #codec-selector {
     display: flex;
     flex-direction: row;
-    margin: 1em auto;
+    justify-content: center;
+    margin: 1em auto 1em auto;
   }
 
   #codec-label {
-    margin: auto 1em;
+    margin-right: 1em;
   }
 
   @media (min-width: 1024px) {

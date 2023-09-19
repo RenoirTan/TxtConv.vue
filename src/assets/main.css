@@ -1,9 +1,9 @@
 @import './base.css';
 
 #app {
-  max-width: 1280px;
+  max-width: 90vw;
   margin: 0 auto;
-  padding: 3rem;
+  padding-top: 3rem auto 3rem auto;
 
   font-weight: normal;
 
@@ -26,6 +26,11 @@ a,
 }
 
 @media (min-width: 1024px) {
+  #app {
+    max-width: 1280px;
+    padding: 3rem;
+  }
+
   body {
     display: flex;
     place-items: center;
