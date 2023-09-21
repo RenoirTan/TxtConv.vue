@@ -35,7 +35,6 @@ watch(codec, (newValue, oldValue) => {
     <CodecSelector v-model="codec"/>
     <TextBox v-model="rightSide" @changed="lastEditedSide = 'right'" />
   </form>
-  <p>sideUpdated: {{ lastEditedSide }}</p>
 </template>
 
 <style scoped>
