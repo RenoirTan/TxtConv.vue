@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import TextBox from './TextBox.vue';
 import CodecSelector from './CodecSelector.vue';
 import { convertLeftToRight, convertRightToLeft } from '../converters';
@@ -11,10 +11,22 @@ const rightSide = computed({
   },
   set(newValue) {
     leftSide.value = convertRightToLeft(newValue, codec.value);
+    rightSideStored.value = newValue;
   }
 });
+const rightSideStored = ref("");
 const codec = ref("rot13");
 const lastEditedSide = ref("left");
+
+watch(codec, (newValue, oldValue) => {
+  if (lastEditedSide.value === "left") {
+    rightSide.value = convertLeftToRight(leftSide.value, newValue);
+  } else if (lastEditedSide.value === "right") {
+    // don't use rightSide.value because that will trigger the set function
+    // which defeats the purpose
+    leftSide.value = convertRightToLeft(rightSideStored.value, newValue);
+  }
+});
 </script>
 
 <template>
