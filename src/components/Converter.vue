@@ -14,14 +14,16 @@ const rightSide = computed({
   }
 });
 const codec = ref("rot13");
+const lastEditedSide = ref("left");
 </script>
 
 <template>
   <form id="cnv-form">
-    <TextBox v-model="leftSide" />
+    <TextBox v-model="leftSide" @changed="lastEditedSide = 'left'" />
     <CodecSelector v-model="codec"/>
-    <TextBox v-model="rightSide" />
+    <TextBox v-model="rightSide" @changed="lastEditedSide = 'right'" />
   </form>
+  <p>sideUpdated: {{ lastEditedSide }}</p>
 </template>
 
 <style scoped>
