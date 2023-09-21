@@ -20,7 +20,7 @@ const rightSide = computed({
     if (codec.value === "rot13") {
       leftSide.value = rot13Decode(newValue);
     } else if (codec.value === "oppositeCase") {
-      return oppositeCaseDecode(newValue);
+      leftSide.value = oppositeCaseDecode(newValue);
     } else {
       leftSide.value = newValue;
     }
