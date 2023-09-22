@@ -23,7 +23,7 @@ defineEmits(["update:modelValue"]);
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 1em auto 1em auto;
+    margin: auto auto 2em auto;
   }
 
   #codec-label {

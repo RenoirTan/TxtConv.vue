@@ -41,6 +41,8 @@ watch(codec, (newValue, oldValue) => {
   #cnv-form {
     display: grid;
     grid-auto-flow: row;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   @media (min-width: 1024px) {
