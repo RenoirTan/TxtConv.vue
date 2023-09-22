@@ -31,9 +31,9 @@ watch(codec, (newValue, oldValue) => {
 
 <template>
   <form id="cnv-form">
-    <TextBox v-model="leftSide" @changed="lastEditedSide = 'left'" />
+    <TextBox v-model="leftSide" @changed="lastEditedSide = 'left'" label="Original" />
     <CodecSelector v-model="codec"/>
-    <TextBox v-model="rightSide" @changed="lastEditedSide = 'right'" />
+    <TextBox v-model="rightSide" @changed="lastEditedSide = 'right'" label="Converted" />
   </form>
 </template>
 

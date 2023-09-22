@@ -4,21 +4,27 @@ defineEmits(["update:modelValue", "changed"]);
 </script>
 
 <template>
+  <!--
+    Cannot use v-model for v-textarea because that for some reason directly
+    edits the underlying <textarea> which has wonky effects: textarea not
+    growing correctly in Firefox and no input in Chromium browsers.
+    Instead use model-value.
+    
+    type="text" also messes things up??? wtf is happening underneath
+  -->
   <v-textarea
-    type="text"
-    :value="modelValue"
+    :model-value="modelValue"
     @input="$emit('update:modelValue', $event.target.value); $emit('changed')"
     :label="label"
-    variant="default"
+    variant="solo"
     auto-grow
+    counter
+    rounded="10px"
+    rows="3"
     class="mytextbox"
   >
   </v-textarea>
 </template>
 
 <style scoped>
-.mytextbox {
-  padding: 0;
-  border-bottom: 2px solid green;
-}
 </style>
