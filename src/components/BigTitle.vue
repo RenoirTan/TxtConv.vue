@@ -19,6 +19,7 @@ import Icon from './Icon.vue';
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 6vh;
   }
 
   .bigtitle-items {
@@ -31,9 +32,16 @@ import Icon from './Icon.vue';
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
   }
 
   .bigname-icon {
     margin: auto 5px;
+  }
+
+  @media (min-width: 1024px) {
+    .bigtitle {
+      margin-top: auto;
+    }
   }
 </style>
