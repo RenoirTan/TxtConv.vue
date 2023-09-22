@@ -1,20 +1,35 @@
 <script setup>
+import { computed, reactive, ref } from 'vue';
+
 defineProps(["modelValue"]);
-defineEmits(["update:modelValue"]);
+const emit = defineEmits(["update:modelValue"]);
+
+const selected = ref("ROT13");
+// displayed: underlying
+const codecs = reactive({
+  "ROT13": "rot13",
+  "Opposite Case": "oppositeCase"
+});
+const codecsDisplayed = computed(() => {
+  return Object.keys(codecs);
+});
+const onInput = (event) => {
+  emit("update:modelValue", codecs[selected.value]);
+}
 </script>
 
 <template>
   <div id="codec-selector">
-    <label for="codec" id="codec-label">Choose a codec</label>
-    <select
-      name="codec"
+    <v-autocomplete
+      label="Choose a codec"
+      :items="codecsDisplayed"
+      variant="underlined"
       id="codec"
-      :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
+      v-model="selected"
+      @update:modelValue="onInput"
+      auto-select-first
     >
-      <option value="rot13">ROT13</option>
-      <option value="oppositeCase">Opposite Case</option>
-    </select>
+    </v-autocomplete>
   </div>
 </template>
 
@@ -24,6 +39,7 @@ defineEmits(["update:modelValue"]);
     flex-direction: row;
     justify-content: center;
     margin: auto auto 2em auto;
+    width: 12em;
   }
 
   #codec-label {
